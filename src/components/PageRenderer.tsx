@@ -247,20 +247,20 @@ export default function PageRenderer({ page }: PageRendererProps) {
         );
       }
 
-      // Special layout for page 10 (id: 13) - 10-1.png on left quarter, text and 10-2.png on right
+      // Special layout for page 10 (id: 13) - 10-1.png on left quarter, text and 10-2.png on right, aligned to bottom
       if (page.id === 13 && page.images && page.images.length === 2) {
         const bassoonImg = page.images.find(img => img.src.includes('10-1')) || page.images[0];
         const sadImg = page.images.find(img => img.src.includes('10-2')) || page.images[1];
         
         return (
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 min-h-[80vh]">
-            {/* Left: 10-1.png - takes left quarter */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 min-h-[80vh] items-end">
+            {/* Left: 10-1.png - takes left quarter, aligned to bottom */}
             <div className="relative w-full min-h-[500px] md:min-h-[700px] order-2 md:order-1">
               {renderImage(bassoonImg.src, bassoonImg.altText, 'min-h-[500px] md:min-h-[700px]')}
             </div>
             
-            {/* Right: Text above 10-2.png - takes remaining 3/4 */}
-            <div className="md:col-span-3 order-1 md:order-2 space-y-6">
+            {/* Right: Text above 10-2.png - takes remaining 3/4, aligned to bottom */}
+            <div className="md:col-span-3 order-1 md:order-2 flex flex-col justify-end space-y-6">
               {/* Text content */}
               <div className="space-y-4">
                 {page.content.map((paragraph, index) => (
@@ -270,7 +270,7 @@ export default function PageRenderer({ page }: PageRendererProps) {
                 ))}
               </div>
               
-              {/* 10-2.png below text */}
+              {/* 10-2.png below text, aligned with 10-1.png at bottom */}
               <div className="relative w-full min-h-[400px]">
                 {renderImage(sadImg.src, sadImg.altText, 'min-h-[400px]')}
               </div>
