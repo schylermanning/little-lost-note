@@ -52,27 +52,10 @@ export const storyContent: StoryPage[] = [
   {
     id: 3,
     type: 'dedication',
-    layout: 'multi-image',
-    content: [
-      'To Mother and Dad',
-      '',
-      'Thanks for all tender teaching and loving,',
-      'And for lots of TLC.',
-      'Thanks for faith and understanding;',
-      'For letting me be me.'
-    ],
-    images: [
-      {
-        src: '/assets/suzy.jpg',
-        altText: 'Suzy',
-        position: 'bottom'
-      },
-      {
-        src: '/assets/attribution-1.png',
-        altText: 'A girl waving, with several birds, dogs, cats, and chickens around her',
-        position: 'bottom'
-      }
-    ]
+    layout: 'full-image',
+    content: [],
+    imageSrc: '/assets/attribution-1.png',
+    altText: 'A girl waving, with several birds, dogs, cats, and chickens around her'
   },
   // PAGE 1
   {
