@@ -247,6 +247,38 @@ export default function PageRenderer({ page }: PageRendererProps) {
         );
       }
 
+      // Special layout for page 10 (id: 13) - 10-1.png on left quarter, text and 10-2.png on right
+      if (page.id === 13 && page.images && page.images.length === 2) {
+        const bassoonImg = page.images.find(img => img.src.includes('10-1')) || page.images[0];
+        const sadImg = page.images.find(img => img.src.includes('10-2')) || page.images[1];
+        
+        return (
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 min-h-[80vh]">
+            {/* Left: 10-1.png - takes left quarter */}
+            <div className="relative w-full min-h-[500px] md:min-h-[700px] order-2 md:order-1">
+              {renderImage(bassoonImg.src, bassoonImg.altText, 'min-h-[500px] md:min-h-[700px]')}
+            </div>
+            
+            {/* Right: Text above 10-2.png - takes remaining 3/4 */}
+            <div className="md:col-span-3 order-1 md:order-2 space-y-6">
+              {/* Text content */}
+              <div className="space-y-4">
+                {page.content.map((paragraph, index) => (
+                  <p key={index} className="text-xl md:text-2xl leading-relaxed text-gray-800 indent-6 md:indent-10">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+              
+              {/* 10-2.png below text */}
+              <div className="relative w-full min-h-[400px]">
+                {renderImage(sadImg.src, sadImg.altText, 'min-h-[400px]')}
+              </div>
+            </div>
+          </div>
+        );
+      }
+
       // Special layout for page 4 (id: 7) - matches original book layout
       if (page.id === 7 && page.images && page.images.length === 3) {
         const bassFiddle = page.images.find(img => img.src.includes('4-1')) || page.images[0];
