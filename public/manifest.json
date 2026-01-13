@@ -1,24 +1,25 @@
 {
   "name": "Little Lost Note - A Family Story",
   "short_name": "Little Lost Note",
-  "description": "A digital ebook of the family story Little Lost Note",
+  "description": "A digital ebook of the family story Little Lost Note, written in 1957. An introduction to the orchestra through the tale of a little lost note.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#fdfbf7",
-  "theme_color": "#fdfbf7",
+  "background_color": "#e9eae6",
+  "theme_color": "#e9eae6",
   "orientation": "portrait",
   "icons": [
     {
       "src": "/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
       "src": "/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
       "src": "/apple-touch-icon.png",
