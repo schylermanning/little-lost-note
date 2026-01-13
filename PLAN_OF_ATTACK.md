@@ -49,7 +49,7 @@
   - Click-based navigation (left/right side of page)
   - Navigation arrow buttons
 - ✅ Page indicator display
-- ✅ Framer Motion integration with `AnimatePresence` for smooth transitions
+- ✅ Framer Motion integration for page transitions
 - ✅ About button with feature flag support (`NEXT_PUBLIC_SHOW_ABOUT`)
 
 #### `PageRenderer.tsx` (Layout Renderer)
@@ -63,14 +63,12 @@
   - `zebra-strip`: Alternating background sections
   - `multi-image`: Multiple images with flexible positioning (top, bottom, left, right, center, corners)
 - ✅ Next.js `<Image />` component integration for optimization
-- ✅ Audio player rendering for music pages
 - ✅ Responsive design (mobile-first approach)
 - ✅ Special layout handling for cover page and complex multi-image pages
 
 #### `AboutModal.tsx` (About Section)
 - ✅ Modal/overlay component
 - ✅ Keyboard support (Escape to close)
-- ✅ Framer Motion animations
 - ✅ Feature flag controlled visibility
 - ✅ Accessibility attributes (ARIA labels, roles)
 
@@ -86,7 +84,7 @@
 - ✅ `app/layout.tsx`: Root layout with Kalam font (changed from Lora)
 - ✅ `app/page.tsx`: Main entry point using BookReader component
 - ✅ `app/story/page.tsx`: Story page route
-- ✅ `app/sheet-music/page.tsx`: Sheet music page with audio player
+- ✅ `app/sheet-music/page.tsx`: Sheet music page
 - ✅ `app/sheet-music/layout.tsx`: Sheet music layout with metadata
 - ✅ `app/about/page.tsx`: About page
 - ✅ `next.config.ts`: PWA configuration with next-pwa
@@ -96,7 +94,6 @@
 - ✅ Responsive navigation menu for all breakpoints
 - ✅ Links to: Home, Story, Sheet Music, About
 - ✅ Active route highlighting
-- ✅ Smooth animations with Framer Motion
 - ✅ Accessibility features (ARIA labels, keyboard support)
 
 ### 7. SEO & Meta Tags
@@ -224,10 +221,6 @@ app/page.tsx
 - **Gaps**: Consistent spacing (gap-6, gap-8) between elements
 - **Mobile Padding**: p-4, Desktop: p-8
 
-### Animations
-- **Page Transitions**: Fade + slide (opacity 0→1, x: 20→0)
-- **Duration**: 0.3s with easeInOut
-- **Modal**: Scale + fade animation
 
 ---
 
@@ -236,7 +229,6 @@ app/page.tsx
 - **Framework**: Next.js 16.1.1 (App Router)
 - **Language**: TypeScript 5+
 - **Styling**: Tailwind CSS v4
-- **Animations**: Framer Motion
 - **Icons**: React Icons (Io5 set)
 - **Fonts**: Google Fonts (Kalam)
 - **PWA**: next-pwa (v5.6.0)
@@ -281,36 +273,18 @@ app/page.tsx
    - [ ] Test responsive design on various devices (real devices, not just browser dev tools)
    - ✅ **COMPLETED**: Keyboard navigation is implemented
    - ✅ **COMPLETED**: Click navigation is implemented
-   - [ ] Test audio playback on sheet music page (once MP3 file is added)
+   - ✅ **COMPLETED**: Tested on MacBook Chrome and iPhone 14 Chrome - working as expected
    - [ ] Accessibility audit (screen readers, keyboard-only navigation)
-   - [ ] Cross-browser testing (Chrome, Firefox, Safari, Edge)
+   - [ ] Cross-browser testing (Firefox, Safari, Edge)
 
 ### Medium Priority
 
-4. **Enhancements**
-   - [ ] Add page transition preferences (if needed)
-   - [ ] Consider adding swipe gestures for mobile (optional)
-   - [ ] Add loading states for images (Next.js Image component handles this, but could add custom loading UI)
-   - [ ] Add error handling for missing images/audio (especially for sheet music assets)
-   - [ ] Update AboutModal content to match the actual about page content (currently has placeholder text)
-
-5. **Polish**
-   - [ ] Fine-tune animations and transitions (if needed after testing)
-   - [ ] Adjust spacing and typography for optimal readability (if needed after testing)
+4. **Polish**
    - ✅ **COMPLETED**: Layouts tested with actual content - all working correctly
    - ✅ **COMPLETED**: Performance optimization (Next.js Image optimization, proper code splitting)
+   - ✅ **COMPLETED**: Tested on MacBook Chrome and iPhone 14 Chrome - working as expected
 
-### Low Priority / Future Considerations
-
-6. **Optional Features**
-   - [ ] Add print stylesheet (if physical book printing is desired)
-   - [ ] Add sharing functionality
-   - [ ] Add bookmarking/reading progress (localStorage)
-   - [ ] Add fullscreen mode
-   - [ ] Add font size controls
-   - [ ] Add dark mode toggle (if desired, though warm paper theme is intentional)
-
-7. **Documentation**
+5. **Documentation**
    - [ ] Add inline code comments where helpful
    - [ ] Document any custom configurations
    - [ ] Create deployment guide
@@ -348,7 +322,6 @@ app/page.tsx
 - ✅ **COMPLETED**: Site is live at https://www.littlelostnote.com/
 - [ ] Verify all pages load correctly
 - [ ] Check image loading and optimization
-- [ ] Test audio playback on sheet music page
 - [ ] Verify SEO meta tags (OG, Twitter cards) using social media debuggers
 - [ ] Test PWA installation on mobile devices
 - [ ] Test offline functionality
@@ -399,7 +372,6 @@ app/page.tsx
 
 ### Performance Considerations
 - Images are optimized by Next.js automatically
-- Framer Motion animations are performant (GPU-accelerated)
 - No unnecessary re-renders (proper use of `useCallback`)
 - Lazy loading for images (Next.js default)
 
@@ -411,7 +383,7 @@ app/page.tsx
 - No static export is needed since we're deploying to Vercel
 - The warm paper background and Kalam font create a handwritten, storybook-like reading experience
 - All layouts are responsive and will stack vertically on mobile devices
-- The sheet music page includes two-page navigation and MP3 audio player
+- The sheet music page includes two-page navigation
 - Hamburger menu is available on all screen sizes for consistent navigation
 - PWA functionality enables offline reading and mobile app installation
 - SEO is fully configured for social media sharing and search engines
