@@ -211,6 +211,42 @@ export default function PageRenderer({ page }: PageRendererProps) {
         );
       }
 
+      // Special layout for page 2 (id: 5) - first paragraph centered with smaller 2-1.png
+      if (page.id === 5 && page.images && page.images.length === 2) {
+        const leftImg = page.images.find(img => img.position === 'left') || page.images[0];
+        const rightImg = page.images.find(img => img.position === 'right') || page.images[1];
+        
+        return (
+          <div className="space-y-6">
+            {/* First paragraph vertically centered with smaller 2-1.png */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <div className="relative w-full min-h-[300px] order-2 md:order-1">
+                {renderImage(leftImg.src, leftImg.altText, 'min-h-[300px]')}
+              </div>
+              <div className="order-1 md:order-2">
+                <p className="text-xl md:text-2xl leading-relaxed text-gray-800 indent-6 md:indent-10">
+                  {page.content[0]}
+                </p>
+              </div>
+            </div>
+
+            {/* Remaining paragraphs with 2-2.png */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+              <div className="order-2 md:order-1 space-y-4">
+                {page.content.slice(1).map((paragraph, index) => (
+                  <p key={index} className="text-xl md:text-2xl leading-relaxed text-gray-800 indent-6 md:indent-10">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+              <div className="relative w-full min-h-[400px] order-1 md:order-2">
+                {renderImage(rightImg.src, rightImg.altText, 'min-h-[400px]')}
+              </div>
+            </div>
+          </div>
+        );
+      }
+
       // Special layout for page 4 (id: 7) - matches original book layout
       if (page.id === 7 && page.images && page.images.length === 3) {
         const bassFiddle = page.images.find(img => img.src.includes('4-1')) || page.images[0];
@@ -219,10 +255,10 @@ export default function PageRenderer({ page }: PageRendererProps) {
         
         return (
           <div className="space-y-8">
-            {/* Top section: Bass fiddle on left, first two paragraphs on right */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-              <div className="relative w-full min-h-[400px] order-2 md:order-1">
-                {renderImage(bassFiddle.src, bassFiddle.altText, 'min-h-[400px]')}
+            {/* Top section: Bass fiddle on left, first two paragraphs vertically centered on right */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <div className="relative w-full min-h-[300px] order-2 md:order-1">
+                {renderImage(bassFiddle.src, bassFiddle.altText, 'min-h-[300px]')}
               </div>
               <div className="order-1 md:order-2 space-y-4">
                 <p className="text-xl md:text-2xl leading-relaxed text-gray-800 indent-6 md:indent-10">
@@ -251,13 +287,15 @@ export default function PageRenderer({ page }: PageRendererProps) {
               </div>
             </div>
 
-            {/* Bottom section: Last paragraph at top, then violins below */}
-            <div className="space-y-6">
-              <p className="text-xl md:text-2xl leading-relaxed text-gray-800 indent-6 md:indent-10">
-                {page.content[4]}
-              </p>
-              <div className="relative w-full min-h-[400px]">
-                {renderImage(violins.src, violins.altText, 'min-h-[400px]')}
+            {/* Bottom section: Last paragraph on left, violins on right, vertically centered */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <div className="order-2 md:order-1">
+                <p className="text-xl md:text-2xl leading-relaxed text-gray-800 indent-6 md:indent-10">
+                  {page.content[4]}
+                </p>
+              </div>
+              <div className="relative w-full min-h-[300px] order-1 md:order-2">
+                {renderImage(violins.src, violins.altText, 'min-h-[300px]')}
               </div>
             </div>
           </div>
