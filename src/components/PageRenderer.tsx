@@ -14,7 +14,7 @@ export default function PageRenderer({ page }: PageRendererProps) {
         {page.content.map((paragraph, index) => (
           <p
             key={index}
-            className="text-2xl md:text-3xl leading-relaxed text-gray-800"
+            className="text-2xl md:text-3xl leading-relaxed text-gray-800 indent-8 md:indent-12"
           >
             {paragraph}
           </p>
@@ -165,7 +165,7 @@ export default function PageRenderer({ page }: PageRendererProps) {
               key={index}
               className={`p-6 ${index % 2 === 0 ? 'bg-white/50' : 'bg-transparent'}`}
             >
-              <p className="text-xl md:text-2xl leading-relaxed text-gray-800">
+              <p className="text-xl md:text-2xl leading-relaxed text-gray-800 indent-6 md:indent-10">
                 {paragraph}
               </p>
             </div>
@@ -225,10 +225,10 @@ export default function PageRenderer({ page }: PageRendererProps) {
                 {renderImage(bassFiddle.src, bassFiddle.altText, 'min-h-[400px]')}
               </div>
               <div className="order-1 md:order-2 space-y-4">
-                <p className="text-xl md:text-2xl leading-relaxed text-gray-800">
+                <p className="text-xl md:text-2xl leading-relaxed text-gray-800 indent-6 md:indent-10">
                   {page.content[0]}
                 </p>
-                <p className="text-xl md:text-2xl leading-relaxed text-gray-800">
+                <p className="text-xl md:text-2xl leading-relaxed text-gray-800 indent-6 md:indent-10">
                   {page.content[1]}
                 </p>
               </div>
@@ -237,7 +237,7 @@ export default function PageRenderer({ page }: PageRendererProps) {
             {/* Middle section: Paragraph 3 on left, cello in center, paragraph 4 on right */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
               <div className="order-2 md:order-1">
-                <p className="text-xl md:text-2xl leading-relaxed text-gray-800">
+                <p className="text-xl md:text-2xl leading-relaxed text-gray-800 indent-6 md:indent-10">
                   {page.content[2]}
                 </p>
               </div>
@@ -245,7 +245,7 @@ export default function PageRenderer({ page }: PageRendererProps) {
                 {renderImage(cello.src, cello.altText, 'min-h-[400px]')}
               </div>
               <div className="order-3">
-                <p className="text-xl md:text-2xl leading-relaxed text-gray-800">
+                <p className="text-xl md:text-2xl leading-relaxed text-gray-800 indent-6 md:indent-10">
                   {page.content[3]}
                 </p>
               </div>
@@ -253,7 +253,7 @@ export default function PageRenderer({ page }: PageRendererProps) {
 
             {/* Bottom section: Last paragraph at top, then violins below */}
             <div className="space-y-6">
-              <p className="text-xl md:text-2xl leading-relaxed text-gray-800">
+              <p className="text-xl md:text-2xl leading-relaxed text-gray-800 indent-6 md:indent-10">
                 {page.content[4]}
               </p>
               <div className="relative w-full min-h-[400px]">
@@ -321,7 +321,7 @@ export default function PageRenderer({ page }: PageRendererProps) {
                         </div>
                       )}
                       <div className={`space-y-4 ${leftImg ? 'order-1 md:order-2' : ''}`}>
-                        <p className="text-xl md:text-2xl leading-relaxed text-gray-800">
+                        <p className="text-xl md:text-2xl leading-relaxed text-gray-800 indent-6 md:indent-10">
                           {paragraph}
                         </p>
                       </div>
@@ -334,7 +334,7 @@ export default function PageRenderer({ page }: PageRendererProps) {
                   );
                 }
                 return (
-                  <p key={index} className="text-xl md:text-2xl leading-relaxed text-gray-800">
+                  <p key={index} className="text-xl md:text-2xl leading-relaxed text-gray-800 indent-6 md:indent-10">
                     {paragraph}
                   </p>
                 );
@@ -354,7 +354,7 @@ export default function PageRenderer({ page }: PageRendererProps) {
                 
                 return (
                   <div key={index}>
-                    <p className="text-xl md:text-2xl leading-relaxed text-gray-800">
+                    <p className="text-xl md:text-2xl leading-relaxed text-gray-800 indent-6 md:indent-10">
                       {paragraph}
                     </p>
                     {shouldShowCenterImageAfter && (
