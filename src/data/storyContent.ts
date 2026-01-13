@@ -158,9 +158,7 @@ export const storyContent: StoryPage[] = [
     id: 8,
     type: 'story',
     layout: 'full-image',
-    content: [
-      'THE PERCUSSIONS'
-    ],
+    content: [],
     imageSrc: '/assets/5-1.png',
     altText: 'drums, triangle, cymbals, xylophone'
   },

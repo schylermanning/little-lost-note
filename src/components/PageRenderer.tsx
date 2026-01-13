@@ -121,12 +121,20 @@ export default function PageRenderer({ page }: PageRendererProps) {
       );
 
     case 'text-only':
+      // Special case: page id 2 (about page) uses smaller font
+      const isAboutPage = page.id === 2;
       return (
         <div className="flex flex-col items-center justify-center min-h-[60vh] text-center">
           {page.content.map((paragraph, index) => (
             <h1
               key={index}
-              className={`${index === 0 ? 'text-6xl md:text-7xl font-bold mb-4' : 'text-3xl md:text-4xl font-light'} text-gray-800`}
+              className={`${
+                isAboutPage 
+                  ? 'text-xl md:text-2xl font-normal mb-4' 
+                  : index === 0 
+                    ? 'text-6xl md:text-7xl font-bold mb-4' 
+                    : 'text-3xl md:text-4xl font-light'
+              } text-gray-800`}
             >
               {paragraph}
             </h1>
@@ -140,9 +148,11 @@ export default function PageRenderer({ page }: PageRendererProps) {
           <div className="relative w-full flex-1 min-h-[65vh]">
             {renderImage(page.imageSrc, page.altText, 'min-h-[65vh]')}
           </div>
-          <div className="flex-shrink-0">
-            {renderContent()}
-          </div>
+          {page.content.length > 0 && (
+            <div className="flex-shrink-0">
+              {renderContent()}
+            </div>
+          )}
           {page.type === 'music' && renderAudio()}
         </div>
       );

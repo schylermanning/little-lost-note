@@ -26,7 +26,6 @@ const sheetMusicPages: SheetMusicPage[] = [
 
 export default function SheetMusicPage() {
   const [currentPage, setCurrentPage] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
 
   const totalPages = sheetMusicPages.length;
   const currentPageData = sheetMusicPages[currentPage];
@@ -52,26 +51,6 @@ export default function SheetMusicPage() {
             <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
               Sheet Music
             </h1>
-            <p className="text-2xl md:text-3xl text-gray-700">
-              Little Lost Note
-            </p>
-          </div>
-
-          {/* Audio Player */}
-          <div className="flex justify-center mb-6">
-            <div className="w-full max-w-2xl">
-              <audio
-                controls
-                className="w-full"
-                onPlay={() => setIsPlaying(true)}
-                onPause={() => setIsPlaying(false)}
-                aria-label="Audio player for Little Lost Note song"
-              >
-                <source src="/assets/little-lost-note-song.mp3" type="audio/mpeg" />
-                <source src="/assets/little-lost-note-song.mp3" type="audio/mp3" />
-                Your browser does not support the audio element.
-              </audio>
-            </div>
           </div>
 
           {/* Sheet Music Pages */}

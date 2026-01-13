@@ -14,7 +14,6 @@ export default function Navigation() {
     { href: '/', label: 'Home' },
     { href: '/story', label: 'Story' },
     { href: '/sheet-music', label: 'Sheet Music' },
-    { href: '/about', label: 'About' },
   ];
 
   const isActive = (href: string) => {
