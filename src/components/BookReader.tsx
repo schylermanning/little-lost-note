@@ -48,6 +48,11 @@ export default function BookReader() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [goToNextPage, goToPreviousPage]);
 
+  // Scroll to top when page changes (especially important on mobile)
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentPage]);
+
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const clickX = e.clientX - rect.left;

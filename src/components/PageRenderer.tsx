@@ -333,11 +333,12 @@ export default function PageRenderer({ page }: PageRendererProps) {
         return (
           <div className="space-y-8">
             {/* Top section: Bass fiddle on left, first two paragraphs vertically centered on right */}
+            {/* On mobile: image first, then text. On desktop: image left, text right */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-              <div className="relative w-full min-h-[300px] order-2 md:order-1">
+              <div className="relative w-full min-h-[300px] order-1 md:order-1">
                 {renderImage(bassFiddle.src, bassFiddle.altText, 'min-h-[300px]')}
               </div>
-              <div className="order-1 md:order-2 space-y-4">
+              <div className="order-2 md:order-2 space-y-4">
                 <p className="text-xl md:text-2xl leading-relaxed text-gray-800 indent-6 md:indent-10">
                   {page.content[0]}
                 </p>
