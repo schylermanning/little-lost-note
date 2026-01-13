@@ -143,6 +143,28 @@ export default function PageRenderer({ page }: PageRendererProps) {
       );
 
     case 'full-image':
+      // Special case: Sheet music pages (id: 19, 20) - make images much larger
+      if ((page.id === 19 || page.id === 20) && page.imageSrc) {
+        return (
+          <div className="flex flex-col items-center justify-center min-h-[90vh]">
+            <div className="relative w-full min-h-[800px] md:min-h-[1000px] lg:min-h-[1200px]">
+              {renderImage(page.imageSrc, page.altText, 'min-h-[800px] md:min-h-[1000px] lg:min-h-[1200px]')}
+            </div>
+          </div>
+        );
+      }
+      
+      // Special case: End slide (id: 21) - just centered image, no text
+      if (page.id === 21 && page.type === 'end' && page.imageSrc) {
+        return (
+          <div className="flex flex-col items-center justify-center min-h-[80vh]">
+            <div className="relative w-full max-w-3xl min-h-[500px] md:min-h-[600px]">
+              {renderImage(page.imageSrc, page.altText, 'min-h-[500px] md:min-h-[600px]')}
+            </div>
+          </div>
+        );
+      }
+      
       return (
         <div className="flex flex-col items-center gap-6 min-h-[80vh]">
           <div className="relative w-full flex-1 min-h-[65vh]">
@@ -182,27 +204,6 @@ export default function PageRenderer({ page }: PageRendererProps) {
         return renderContent();
       }
 
-      // Special case: End slide (id: 21) - "I'm home" text centered with image
-      if (page.id === 21 && page.type === 'end' && page.images && page.images.length === 1) {
-        const endImg = page.images[0];
-        return (
-          <div className="flex flex-col items-center justify-center min-h-[80vh] gap-8">
-            <div className="text-center">
-              {page.content.map((paragraph, index) => (
-                <h1
-                  key={index}
-                  className="text-5xl md:text-6xl font-bold text-gray-800 mb-6"
-                >
-                  {paragraph}
-                </h1>
-              ))}
-            </div>
-            <div className="relative w-full max-w-2xl min-h-[400px]">
-              {renderImage(endImg.src, endImg.altText, 'min-h-[400px]')}
-            </div>
-          </div>
-        );
-      }
 
       // Special case: Cover page with logo and cover image
       if (page.type === 'title' && page.images && page.images.length === 2 && page.content.length === 0) {

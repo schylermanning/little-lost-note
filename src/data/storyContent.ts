@@ -333,16 +333,9 @@ export const storyContent: StoryPage[] = [
   {
     id: 21,
     type: 'end',
-    layout: 'multi-image',
-    content: [
-      'I\'m home'
-    ],
-    images: [
-      {
-        src: '/assets/21-1.png',
-        altText: 'Little Lost Note character',
-        position: 'center'
-      }
-    ]
+    layout: 'full-image',
+    content: [],
+    imageSrc: '/assets/20-1.png',
+    altText: 'Little Lost Note character'
   }
 ];
