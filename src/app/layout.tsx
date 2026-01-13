@@ -9,7 +9,7 @@ const kalam = Kalam({
   weight: ["300", "400", "700"],
 });
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://little-lost-note.vercel.app';
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.littlelostnote.com';
 
 export const metadata: Metadata = {
   title: {

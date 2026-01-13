@@ -322,25 +322,27 @@ app/page.tsx
 - ✅ **COMPLETED**: All story images added and paths updated
 - ❌ **MISSING**: Sheet music images added (`sheet-music-1.png`, `sheet-music-2.png`)
 - ❌ **MISSING**: Audio file added (`little-lost-note-song.mp3`)
-- [ ] Environment variables set:
-  - [ ] `NEXT_PUBLIC_BASE_URL` (for SEO meta tags - defaults to Vercel URL if not set)
-  - [ ] `NEXT_PUBLIC_SHOW_ABOUT` (if needed - currently not used)
-- [ ] Test build locally: `npm run build`
-- [ ] Test production build locally: `npm start`
+- ✅ **COMPLETED**: Environment variables configured (base URL defaults to custom domain)
+  - ✅ `NEXT_PUBLIC_BASE_URL` default updated to `https://www.littlelostnote.com`
+  - ℹ️ `NEXT_PUBLIC_SHOW_ABOUT` (optional, currently not used)
+- ✅ **COMPLETED**: Test build locally: `npm run build` (successful)
+- [ ] Test production build locally: `npm start` (optional)
 - [ ] Verify PWA functionality (service worker, offline support)
 - ✅ **COMPLETED**: Favicon displays correctly (generated from cover image)
 
 ### Vercel Deployment
-- [ ] Connect repository to Vercel
-- [ ] Configure build settings (should auto-detect Next.js)
-- [ ] Set environment variables in Vercel dashboard
-- [ ] Deploy and verify
-- [ ] Test on production URL
+- ✅ **COMPLETED**: Connect repository to Vercel
+- ✅ **COMPLETED**: Configure build settings (auto-detected Next.js)
+- ✅ **COMPLETED**: Deploy and verify
+- ✅ **COMPLETED**: Test on production URL (https://www.littlelostnote.com/)
+- ✅ **COMPLETED**: Custom domain configured and working
+- [ ] Set environment variables in Vercel dashboard (optional - base URL already defaults correctly)
 - [ ] Verify image optimization is working
 - [ ] Test all navigation methods
 - [ ] Test on mobile devices
 
 ### Post-Deployment
+- ✅ **COMPLETED**: Site is live at https://www.littlelostnote.com/
 - [ ] Verify all pages load correctly
 - [ ] Check image loading and optimization
 - [ ] Test audio playback on sheet music page
