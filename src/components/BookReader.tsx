@@ -61,7 +61,7 @@ export default function BookReader() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fdfbf7] relative">
+    <div className="min-h-screen bg-[#e9eae6] relative">
       {/* About Button */}
       {showAbout && (
         <button

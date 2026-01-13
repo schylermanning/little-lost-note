@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[#fdfbf7] flex items-center justify-center p-4">
+    <div className="min-h-screen bg-[#e9eae6] flex items-center justify-center p-4">
       <div className="max-w-3xl w-full bg-white rounded-lg shadow-xl p-8 md:p-12">
         <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-800">
           About Little Lost Note

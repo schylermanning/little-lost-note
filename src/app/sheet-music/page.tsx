@@ -44,7 +44,7 @@ export default function SheetMusicPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fdfbf7] relative">
+    <div className="min-h-screen bg-[#e9eae6] relative">
       <div className="min-h-screen flex flex-col items-center justify-center p-4 md:p-8">
         <div className="max-w-5xl w-full space-y-6">
           {/* Title */}

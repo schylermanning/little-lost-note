@@ -60,7 +60,7 @@ export default function Navigation() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: -300, opacity: 0 }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 left-0 h-full w-64 bg-[#fdfbf7] shadow-2xl z-50 overflow-y-auto"
+              className="fixed top-0 left-0 h-full w-64 bg-[#e9eae6] shadow-2xl z-50 overflow-y-auto"
             >
               <div className="p-6">
                 <div className="flex items-center justify-between mb-8">
