@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import BookReader from '@/components/BookReader';
 
 export const metadata: Metadata = {
-  title: 'Home',
+  title: 'Little Lost Note',
   description: 'Welcome to Little Lost Note - A Family Story. Start reading the digital ebook.',
   openGraph: {
     title: 'Little Lost Note - A Family Story',

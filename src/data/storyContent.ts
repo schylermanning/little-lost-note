@@ -52,7 +52,7 @@ export const storyContent: StoryPage[] = [
   {
     id: 3,
     type: 'dedication',
-    layout: 'image-bottom',
+    layout: 'multi-image',
     content: [
       'To Mother and Dad',
       '',
@@ -61,8 +61,18 @@ export const storyContent: StoryPage[] = [
       'Thanks for faith and understanding;',
       'For letting me be me.'
     ],
-    imageSrc: '/assets/attribution-1.png',
-    altText: 'A girl waving, with several birds, dogs, cats, and chickens around her'
+    images: [
+      {
+        src: '/assets/suzy.jpg',
+        altText: 'Suzy',
+        position: 'bottom'
+      },
+      {
+        src: '/assets/attribution-1.png',
+        altText: 'A girl waving, with several birds, dogs, cats, and chickens around her',
+        position: 'bottom'
+      }
+    ]
   },
   // PAGE 1
   {

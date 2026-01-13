@@ -204,6 +204,28 @@ export default function PageRenderer({ page }: PageRendererProps) {
         return renderContent();
       }
 
+      // Special case: Dedication page (id: 3) - text, then suzy.jpg, then attribution-1.png
+      if (page.id === 3 && page.type === 'dedication' && page.images && page.images.length === 2) {
+        const suzyImg = page.images.find(img => img.src.includes('suzy')) || page.images[0];
+        const attributionImg = page.images.find(img => img.src.includes('attribution')) || page.images[1];
+        
+        return (
+          <div className="flex flex-col gap-6 min-h-[80vh]">
+            {/* Text content */}
+            <div className="flex-shrink-0">
+              {renderContent()}
+            </div>
+            {/* Suzy image */}
+            <div className="relative w-full min-h-[300px] md:min-h-[400px]">
+              {renderImage(suzyImg.src, suzyImg.altText, 'min-h-[300px] md:min-h-[400px]')}
+            </div>
+            {/* Attribution image */}
+            <div className="relative w-full flex-1 min-h-[60vh]">
+              {renderImage(attributionImg.src, attributionImg.altText, 'min-h-[60vh]')}
+            </div>
+          </div>
+        );
+      }
 
       // Special case: Cover page with logo and cover image
       if (page.type === 'title' && page.images && page.images.length === 2 && page.content.length === 0) {
