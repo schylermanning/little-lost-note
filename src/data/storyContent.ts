@@ -310,5 +310,39 @@ export const storyContent: StoryPage[] = [
     ],
     imageSrc: '/assets/15-1.png',
     altText: 'Miss Harp sitting on front porch playing music, Little Lost Note and Mr. Baton standing in front of house'
+  },
+  // PAGE 16 - Sheet Music 1
+  {
+    id: 19,
+    type: 'story',
+    layout: 'full-image',
+    content: [],
+    imageSrc: '/assets/sheet-music-1.png',
+    altText: 'Sheet music page 1 - Little Lost Note song'
+  },
+  // PAGE 17 - Sheet Music 2
+  {
+    id: 20,
+    type: 'story',
+    layout: 'full-image',
+    content: [],
+    imageSrc: '/assets/sheet-music-2.png',
+    altText: 'Sheet music page 2 - Little Lost Note song'
+  },
+  // PAGE 18 - End Slide
+  {
+    id: 21,
+    type: 'end',
+    layout: 'multi-image',
+    content: [
+      'I\'m home'
+    ],
+    images: [
+      {
+        src: '/assets/21-1.png',
+        altText: 'Little Lost Note character',
+        position: 'center'
+      }
+    ]
   }
 ];

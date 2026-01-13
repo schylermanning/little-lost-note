@@ -64,13 +64,13 @@ export default function SheetMusicPage() {
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
                 className="w-full"
               >
-                <div className="relative w-full min-h-[500px] md:min-h-[700px]">
+                <div className="relative w-full min-h-[800px] md:min-h-[1000px] lg:min-h-[1200px]">
                   <Image
                     src={currentPageData.imageSrc}
                     alt={currentPageData.altText}
                     fill
                     className="object-contain"
-                    sizes="(max-width: 768px) 100vw, 80vw"
+                    sizes="(max-width: 768px) 100vw, 90vw"
                     priority
                   />
                 </div>

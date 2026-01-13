@@ -19,8 +19,10 @@ export default function BookReader() {
     setCurrentPage((prev) => {
       if (prev < totalPages - 1) {
         return prev + 1;
+      } else {
+        // If on last page, loop back to beginning
+        return 0;
       }
-      return prev;
     });
   }, [totalPages]);
 
@@ -109,19 +111,17 @@ export default function BookReader() {
           </button>
         )}
 
-        {/* Next Button */}
-        {currentPage < totalPages - 1 && (
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              goToNextPage();
-            }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-auto p-3 bg-white/80 hover:bg-white rounded-full shadow-lg transition-all hover:scale-110"
-            aria-label="Go to next page"
-          >
-            <IoChevronForward size={28} className="text-gray-800" />
-          </button>
-        )}
+        {/* Next Button - always show, loops to beginning on last page */}
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            goToNextPage();
+          }}
+          className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-auto p-3 bg-white/80 hover:bg-white rounded-full shadow-lg transition-all hover:scale-110"
+          aria-label={currentPage < totalPages - 1 ? "Go to next page" : "Start over from beginning"}
+        >
+          <IoChevronForward size={28} className="text-gray-800" />
+        </button>
       </div>
 
       {/* Page Indicator */}

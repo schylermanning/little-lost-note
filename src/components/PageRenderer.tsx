@@ -182,6 +182,28 @@ export default function PageRenderer({ page }: PageRendererProps) {
         return renderContent();
       }
 
+      // Special case: End slide (id: 21) - "I'm home" text centered with image
+      if (page.id === 21 && page.type === 'end' && page.images && page.images.length === 1) {
+        const endImg = page.images[0];
+        return (
+          <div className="flex flex-col items-center justify-center min-h-[80vh] gap-8">
+            <div className="text-center">
+              {page.content.map((paragraph, index) => (
+                <h1
+                  key={index}
+                  className="text-5xl md:text-6xl font-bold text-gray-800 mb-6"
+                >
+                  {paragraph}
+                </h1>
+              ))}
+            </div>
+            <div className="relative w-full max-w-2xl min-h-[400px]">
+              {renderImage(endImg.src, endImg.altText, 'min-h-[400px]')}
+            </div>
+          </div>
+        );
+      }
+
       // Special case: Cover page with logo and cover image
       if (page.type === 'title' && page.images && page.images.length === 2 && page.content.length === 0) {
         const logoImg = page.images.find(img => img.src.includes('logo') || img.position === 'top') || page.images[0];
